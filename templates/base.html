@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="{{ html_lang }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}CLIAVE{% endblock %}</title>
+<meta name="description" content="{% block desc %}{{ t('hero_text') }}{% endblock %}">
+<link rel="icon" href="{{ root }}favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="{{ root }}img/brand/favicon-512.png">
+<link rel="stylesheet" href="{{ root }}css/site.css">
+<link rel="canonical" href="{{ base_url }}/{{ page_url }}">
+{% for l, u in alternates.items() %}<link rel="alternate" hreflang="{{ l }}" href="{{ base_url }}/{{ u }}">
+{% endfor %}<meta property="og:title" content="{{ self.title() }}">
+<meta property="og:image" content="{{ base_url }}/img/brand/hero-sm.jpg">
+<meta name="theme-color" content="#2f5f22">
+<script>try{var th=localStorage.getItem('cliave-theme');if(th)document.documentElement.dataset.theme=th}catch(e){}</script>
+</head>
+<body class="{% block bodyclass %}{% endblock %}">
+<a class="skip" href="#main">{{ t('skip') }}</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="{{ root }}{{ lang }}/" aria-label="CLIAVE">
+      <img src="{{ root }}img/brand/logo.png" alt="" width="34" height="40">
+      <span class="brand-text"><strong>CLIAVE</strong><small>{{ t('tagline') }}</small></span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav">{{ t('menu') }}</button>
+    <nav id="nav" class="nav">
+      <a href="{{ root }}{{ lang }}/modules/" {% if section=='modules' %}aria-current="page"{% endif %}>{{ t('nav_modules') }}</a>
+      <a href="{{ root }}{{ lang }}/book/" {% if section=='book' %}aria-current="page"{% endif %}>{{ t('nav_book') }}</a>
+      <a href="{{ root }}{{ lang }}/about/" {% if section=='about' %}aria-current="page"{% endif %}>{{ t('nav_about') }}</a>
+      <a href="{{ root }}{{ lang }}/news/" {% if section=='news' %}aria-current="page"{% endif %}>{{ t('nav_news') }}</a>
+      <details class="lang">
+        <summary aria-label="{{ t('language') }}"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg>{{ lang|upper }}</summary>
+        <ul>{% for l in LANGS %}<li><a href="{{ root }}{{ alternates[l] }}" hreflang="{{ l }}" lang="{{ l }}" {% if l==lang %}aria-current="true"{% endif %} data-lang="{{ l }}">{{ LANG_NAMES[l] }}</a></li>{% endfor %}</ul>
+      </details>
+    </nav>
+  </div>
+</header>
+<main id="main">
+{% block main %}{% endblock %}
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-funding">
+      <img src="{{ root }}img/brand/eu-funded-en.png" alt="{{ t('funded') }}" width="210" height="45" class="eu-logo">
+      <img src="{{ root }}img/brand/ua.png" alt="Turkish National Agency" width="86" height="45">
+      <p class="disclaimer">{{ disclaimer }}</p>
+    </div>
+    <div class="footer-meta">
+      <p><strong>CLIAVE</strong> · Erasmus+ KA220-VET · 2021-1-TR01-KA220-VET-000032974</p>
+      <p>{{ t('license') }}</p>
+      <p class="social">
+        <a href="https://www.facebook.com/cliave.project" rel="noopener">Facebook</a>
+        <a href="https://www.instagram.com/cliave.project" rel="noopener">Instagram</a>
+        <a href="https://www.linkedin.com/showcase/82600126" rel="noopener">LinkedIn</a>
+        <a href="https://twitter.com/CliaveProject" rel="noopener">X</a>
+      </p>
+      <button class="theme-toggle" type="button" aria-label="Light / dark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z"/></svg></button>
+    </div>
+  </div>
+</footer>
+<script src="{{ root }}js/site.js" defer></script>
+</body>
+</html>

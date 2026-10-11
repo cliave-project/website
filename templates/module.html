@@ -1,0 +1,46 @@
+{% extends "base.html" %}{% from "_icons.html" import icon %}{% set section='modules' %}
+{% block title %}{{ t('module') }} {{ card.n }}: {{ card.title }} — CLIAVE{% endblock %}
+{% block main %}
+<div class="module-hero mod-{{ card.n }}">
+  <div class="wrap">
+    <nav class="crumbs"><a href="{{ root }}{{ lang }}/modules/">{{ t('nav_modules') }}</a></nav>
+    <span class="card-icon big">{{ icon(card.icon) }}</span>
+    <p class="eyebrow">{{ t('module') }} {{ card.n }}</p>
+    <h1>{{ card.title }}</h1>
+    <p class="byline">{{ t('authors') }}: {{ card.authors }}<br>{{ t('prepared_by') }}: {{ card.partner.name }}, {{ card.partner.country }}</p>
+    <p><a class="btn btn-primary" href="{{ root }}{{ lang }}/modules/{{ card.n }}/1/">{{ t('start') }} →</a></p>
+  </div>
+</div>
+<div class="wrap module-layout">
+  <section>
+    <h2>{{ t('chapters_list') }}</h2>
+    <ol class="chapter-list">
+    {% for c in chapters %}
+      <li><a href="{{ root }}{{ lang }}/modules/{{ card.n }}/{{ c.n }}/"><span class="num">{{ c.n }}</span><span class="ct" {% if c.title_lang != lang %}lang="{{ c.title_lang }}"{% endif %}>{{ c.title }}</span><span class="cm">{% if c.here %}{{ c.minutes }} {{ t('min') }}{% else %}<span class="badge">{{ t('unavailable_badge') }}</span>{% endif %}</span></a></li>
+    {% endfor %}
+    </ol>
+    {% if intro %}
+    <section class="prose intro" {% if intro_lang != lang %}lang="{{ intro_lang }}"{% endif %}>
+      <h2>{{ t('overview') }}</h2>
+      {{ intro|safe }}
+    </section>
+    {% endif %}
+  </section>
+  <aside class="module-side">
+    <h2>{{ t('downloads') }}</h2>
+    <ul class="dl">
+      {% if slides %}<li><a href="{{ root }}{{ slides.href }}" download>{{ t('slides') }}</a> <small>{{ slides.size }}</small></li>
+      {% elif slides_fallback %}<li><a href="{{ root }}{{ slides_fallback.href }}" download>{{ t('slides') }} · English</a> <small>{{ slides_fallback.size }}</small></li>{% endif %}
+      <li><a href="{{ root }}{{ lang }}/book/">{{ t('book_full') }}</a></li>
+    </ul>
+  </aside>
+</div>
+{% if intro %}
+<div class="wrap narrow">
+  <section class="prose intro" {% if intro_lang != lang %}lang="{{ intro_lang }}"{% endif %}>
+    <h2>{{ t('overview') }}</h2>
+    {{ intro|safe }}
+  </section>
+</div>
+{% endif %}
+{% endblock %}

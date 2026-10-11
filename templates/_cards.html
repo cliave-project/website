@@ -1,0 +1,14 @@
+{% from "_icons.html" import icon %}
+<ol class="cards">
+{% for c in cards %}
+  <li class="card mod-{{ c.n }}">
+    <a href="{{ root }}{{ lang }}/modules/{{ c.n }}/">
+      <span class="card-icon">{{ icon(c.icon) }}</span>
+      <span class="card-kicker">{{ t('module') }} {{ c.n }}</span>
+      <h3>{{ c.title }}</h3>
+      <span class="card-meta">{{ c.partner.name }} · {{ c.partner.country }}</span>
+      <span class="card-foot">{{ c.chapters }} {{ t('chapters_in') }} · ~{{ (c.minutes/60)|round(0,'ceil')|int }} h{% if c.available < c.chapters %} · <span class="partial">{{ c.available }}/{{ c.chapters }} {{ LANG_NAMES[lang] }}</span>{% endif %}</span>
+    </a>
+  </li>
+{% endfor %}
+</ol>

@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% set section='modules' %}
+{% block title %}{{ t('nav_modules') }} — CLIAVE{% endblock %}
+{% block main %}
+<div class="wrap page-head"><h1>{{ t('nav_modules') }}</h1><p class="lead">{{ t('modules_intro') }}</p></div>
+<div class="wrap section">{% include "_cards.html" %}</div>
+{% endblock %}

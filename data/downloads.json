@@ -1,0 +1,138 @@
+{
+ "m1": {
+  "cs": {
+   "href": "downloads/CLIAVE-Module-1-cs.pdf",
+   "size": "12.3 MB"
+  },
+  "en": {
+   "href": "downloads/CLIAVE-Module-1-en.pdf",
+   "size": "11.4 MB"
+  },
+  "ro": {
+   "href": "downloads/CLIAVE-Module-1-ro.pdf",
+   "size": "9.4 MB"
+  },
+  "sr": {
+   "href": "downloads/CLIAVE-Module-1-sr.pdf",
+   "size": "11.3 MB"
+  },
+  "sl": {
+   "href": "downloads/CLIAVE-Module-1-sl.pdf",
+   "size": "9.3 MB"
+  },
+  "tr": {
+   "href": "downloads/CLIAVE-Module-1-tr.pdf",
+   "size": "9.3 MB"
+  }
+ },
+ "m2": {
+  "cs": {
+   "href": "downloads/CLIAVE-Module-2-cs.pdf",
+   "size": "13.5 MB"
+  },
+  "en": {
+   "href": "downloads/CLIAVE-Module-2-en.pdf",
+   "size": "13.5 MB"
+  },
+  "ro": {
+   "href": "downloads/CLIAVE-Module-2-ro.pdf",
+   "size": "13.6 MB"
+  },
+  "sr": {
+   "href": "downloads/CLIAVE-Module-2-sr.pdf",
+   "size": "13.5 MB"
+  },
+  "sl": {
+   "href": "downloads/CLIAVE-Module-2-sl.pdf",
+   "size": "13.5 MB"
+  },
+  "tr": {
+   "href": "downloads/CLIAVE-Module-2-tr.pdf",
+   "size": "20.2 MB"
+  }
+ },
+ "m4": {
+  "cs": {
+   "href": "downloads/CLIAVE-Module-4-cs.pdf",
+   "size": "1.3 MB"
+  },
+  "en": {
+   "href": "downloads/CLIAVE-Module-4-en.pdf",
+   "size": "1.3 MB"
+  },
+  "ro": {
+   "href": "downloads/CLIAVE-Module-4-ro.pdf",
+   "size": "1.3 MB"
+  },
+  "sr": {
+   "href": "downloads/CLIAVE-Module-4-sr.pdf",
+   "size": "1.3 MB"
+  },
+  "sl": {
+   "href": "downloads/CLIAVE-Module-4-sl.pdf",
+   "size": "1.2 MB"
+  }
+ },
+ "m5": {
+  "cs": {
+   "href": "downloads/CLIAVE-Module-5-cs.pdf",
+   "size": "12.3 MB"
+  },
+  "en": {
+   "href": "downloads/CLIAVE-Module-5-en.pdf",
+   "size": "18.9 MB"
+  },
+  "ro": {
+   "href": "downloads/CLIAVE-Module-5-ro.pdf",
+   "size": "12.1 MB"
+  },
+  "sr": {
+   "href": "downloads/CLIAVE-Module-5-sr.pdf",
+   "size": "18.5 MB"
+  },
+  "sl": {
+   "href": "downloads/CLIAVE-Module-5-sl.pdf",
+   "size": "12.7 MB"
+  },
+  "tr": {
+   "href": "downloads/CLIAVE-Module-5-tr.pdf",
+   "size": "12.7 MB"
+  }
+ },
+ "m6": {
+  "cs": {
+   "href": "downloads/CLIAVE-Module-6-cs.pdf",
+   "size": "6.3 MB"
+  },
+  "en": {
+   "href": "downloads/CLIAVE-Module-6-en.pdf",
+   "size": "5.2 MB"
+  },
+  "ro": {
+   "href": "downloads/CLIAVE-Module-6-ro.pdf",
+   "size": "6.3 MB"
+  },
+  "sr": {
+   "href": "downloads/CLIAVE-Module-6-sr.pdf",
+   "size": "6.3 MB"
+  },
+  "sl": {
+   "href": "downloads/CLIAVE-Module-6-sl.pdf",
+   "size": "6.3 MB"
+  },
+  "tr": {
+   "href": "downloads/CLIAVE-Module-6-tr.pdf",
+   "size": "5.0 MB"
+  }
+ },
+ "book": {
+  "en": {
+   "href": "downloads/Book-of-CLIAVE-en.pdf",
+   "size": "11.5 MB"
+  },
+  "ro": {
+   "href": "downloads/Book-of-CLIAVE-ro.pdf",
+   "size": "17.7 MB"
+  }
+ }
+}

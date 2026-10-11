@@ -1,0 +1,10 @@
+{% macro icon(name) -%}
+<svg class="icon" viewBox="0 0 48 48" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+{%- if name=='crop' %}<path d="M24 44V18"/><path d="M24 26c-6 0-10-4-10-10 6 0 10 4 10 10zM24 26c6 0 10-4 10-10-6 0-10 4-10 10z"/><path d="M24 36c-6 0-10-4-10-10 6 0 10 4 10 10zM24 36c6 0 10-4 10-10-6 0-10 4-10 10z"/><path d="M24 18c-3-2-4-5-3-10 3 2 4 6 3 10z"/>
+{%- elif name=='soil' %}<path d="M6 22h36"/><path d="M6 30h36M6 38h36" stroke-dasharray="2 5"/><path d="M24 22V10"/><path d="M24 14c-4 0-7-3-7-7 4 0 7 3 7 7zM24 14c4 0 7-3 7-7-4 0-7 3-7 7z"/><path d="M34 6c2 2 2 4 0 6M38 4c3 3 3 7 0 10"/>
+{%- elif name=='water' %}<path d="M24 6c7 9 11 15 11 21a11 11 0 0 1-22 0c0-6 4-12 11-21z"/><path d="M18 29a6 6 0 0 0 6 6"/>
+{%- elif name=='leaf' %}<path d="M10 38C10 20 22 9 40 8c0 18-11 30-30 30z"/><path d="M10 38 28 20"/><circle cx="33" cy="33" r="3"/><path d="M33 30v-3M33 39v-3M36 33h3M27 33h3"/>
+{%- elif name=='cow' %}<path d="M14 18h20c4 0 6 3 6 7v5c0 4-3 7-7 7H15c-4 0-7-3-7-7v-5c0-4 2-7 6-7z"/><path d="M14 18l-4-6M34 18l4-6"/><circle cx="19" cy="26" r="1.2" fill="currentColor"/><circle cx="29" cy="26" r="1.2" fill="currentColor"/><path d="M20 32h8"/>
+{%- elif name=='sun' %}<circle cx="24" cy="24" r="8"/><path d="M24 6v5M24 37v5M6 24h5M37 24h5M11.3 11.3l3.5 3.5M33.2 33.2l3.5 3.5M11.3 36.7l3.5-3.5M33.2 14.8l3.5-3.5"/>
+{%- endif %}</svg>
+{%- endmacro %}

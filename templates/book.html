@@ -1,0 +1,25 @@
+{% extends "base.html" %}{% set section='book' %}
+{% block title %}{{ t('book_full')|replace(' (PDF)','') }} — CLIAVE{% endblock %}
+{% block main %}
+<div class="wrap page-head"><h1>{{ t('book_full')|replace(' (PDF)','') }}</h1><p class="lead">{{ t('book_intro') }}</p></div>
+<div class="wrap books">
+  <figure class="book">
+    <img src="{{ root }}img/brand/book-en.jpg" alt="Climate Focused Agricultural Vocational Education — cover" width="600" height="884" loading="lazy">
+    <figcaption>
+      <h2 lang="en">Climate Focused Agricultural Vocational Education</h2>
+      <p lang="en">Editor: Emre Bilen · Atatürk Horticultural Central Research Institute, Publication No. 114 · Yalova, 2024 · 344 pp.</p>
+      <p>ISBN 978-625-94899-5-7</p>
+      <p><a class="btn btn-primary" href="{{ root }}downloads/Book-of-CLIAVE-en.pdf" download>English · PDF</a></p>
+    </figcaption>
+  </figure>
+  <figure class="book">
+    <img src="{{ root }}img/brand/book-ro.jpg" alt="Romanian edition — cover" width="600" height="825" loading="lazy">
+    <figcaption>
+      <h2 lang="ro">Ediția în limba română</h2>
+      <p lang="ro">Educație profesională agricolă axată pe climă</p>
+      <p><a class="btn btn-primary" href="{{ root }}downloads/Book-of-CLIAVE-ro.pdf" download>Română · PDF</a></p>
+    </figcaption>
+  </figure>
+</div>
+<div class="wrap narrow"><p class="muted">{{ disclaimer }}</p></div>
+{% endblock %}

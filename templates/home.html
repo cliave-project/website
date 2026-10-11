@@ -1,0 +1,52 @@
+{% extends "base.html" %}{% from "_icons.html" import icon %}
+{% block title %}CLIAVE — {{ t('tagline') }}{% endblock %}
+{% block bodyclass %}home{% endblock %}
+{% block main %}
+<section class="hero">
+  <picture><source media="(max-width: 700px)" srcset="{{ root }}img/brand/hero-sm.jpg"><img class="hero-img" src="{{ root }}img/brand/hero.jpg" alt="" width="2000" height="1500"></picture>
+  <div class="wrap hero-content">
+    <p class="eyebrow">{{ t('tagline') }}</p>
+    <h1>{{ t('hero_title') }}</h1>
+    <p class="lead">{{ t('hero_text') }}</p>
+    <p class="actions"><a class="btn btn-primary" href="{{ root }}{{ lang }}/modules/">{{ t('start') }}</a> <a class="btn btn-ghost" href="{{ root }}{{ lang }}/book/">{{ t('get_book') }}</a></p>
+  </div>
+</section>
+<section class="stats wrap" aria-label="CLIAVE">
+  <div><strong>6</strong><span>{{ t('stat_modules') }}</span></div>
+  <div><strong>{{ total_ch }}</strong><span>{{ t('stat_chapters') }}</span></div>
+  <div><strong>6</strong><span>{{ t('stat_langs') }}</span></div>
+  <div><strong>6</strong><span>{{ t('stat_partners') }}</span></div>
+</section>
+<section class="wrap section">
+  <h2 class="section-title">{{ t('nav_modules') }}</h2>
+  <p class="section-intro">{{ t('modules_intro') }}</p>
+  {% include "_cards.html" %}
+</section>
+<section class="band">
+  <div class="wrap book-teaser">
+    <img src="{{ root }}img/brand/book-en.jpg" alt="Book of CLIAVE" width="600" height="884" loading="lazy">
+    <div>
+      <h2>{{ t('book_full')|replace(' (PDF)','') }}</h2>
+      <p>{{ t('book_intro') }}</p>
+      <p class="muted">ISBN 978-625-94899-5-7 · {{ t('book_langs_note') }}</p>
+      <p><a class="btn btn-primary" href="{{ root }}{{ lang }}/book/">{{ t('get_book') }}</a></p>
+    </div>
+  </div>
+</section>
+<section class="wrap section">
+  <div class="section-head"><h2 class="section-title">{{ t('latest_news') }}</h2><a href="{{ root }}{{ lang }}/news/">{{ t('all_news') }} →</a></div>
+  <div class="news-teasers">
+  {% for n in news %}
+    <a class="news-teaser" href="{{ root }}{{ lang }}/news/#{{ n.slug }}" lang="en">
+      {% if n.photos %}<img src="{{ root }}{{ n.photos[0].src }}" alt="" loading="lazy" width="{{ n.photos[0].w }}" height="{{ n.photos[0].h }}">{% endif %}
+      <time datetime="{{ n.date }}">{{ n.date_h }}</time>
+      <h3>{{ n.title }}</h3>
+    </a>
+  {% endfor %}
+  </div>
+</section>
+<section class="wrap section partners-strip">
+  <h2 class="section-title">{{ t('partners') }}</h2>
+  <ul class="logos">{% for k, p in PARTNERS.items() %}<li><img src="{{ root }}img/partners/{{ p.logo }}" alt="{{ p.name }}" loading="lazy"><span>{{ p.name }}<br><small>{{ p.country }}</small></span></li>{% endfor %}</ul>
+</section>
+{% endblock %}

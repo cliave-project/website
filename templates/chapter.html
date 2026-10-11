@@ -1,0 +1,53 @@
+{% extends "base.html" %}{% set section='modules' %}
+{% block title %}{{ title }} — {{ t('module') }} {{ card.n }} — CLIAVE{% endblock %}
+{% block bodyclass %}reading{% endblock %}
+{% block main %}
+<div class="progress" aria-hidden="true"><span></span></div>
+<div class="wrap chapter-layout">
+  <aside class="chapter-nav">
+    <details open>
+      <summary><span class="card-kicker">{{ t('module') }} {{ card.n }}</span> <a href="{{ root }}{{ lang }}/modules/{{ card.n }}/">{{ card.title }}</a></summary>
+      <ol>{% for c in chapters %}<li {% if c.n==ch %}class="current"{% endif %}><a href="{{ root }}{{ lang }}/modules/{{ card.n }}/{{ c.n }}/" {% if c.n==ch %}aria-current="page"{% endif %}><span class="num">{{ c.n }}</span> <span {% if c.title_lang != lang %}lang="{{ c.title_lang }}"{% endif %}>{{ c.title }}</span></a></li>{% endfor %}</ol>
+    </details>
+  </aside>
+  <article class="chapter">
+    <header class="chapter-head">
+      <p class="eyebrow">{{ t('module') }} {{ card.n }} · {{ t('chapter') }} {{ ch }}</p>
+      <h1 {% if title_lang != lang %}lang="{{ title_lang }}"{% endif %}>{{ title }}</h1>
+      <p class="byline">{{ card.authors }}{% if minutes %} · {{ minutes }} {{ t('min') }}{% endif %}</p>
+      <p class="langs">{% for l in LANGS %}{% if l in avail %}<a href="{{ root }}{{ l }}/modules/{{ card.n }}/{{ ch }}/" {% if l==lang %}aria-current="true"{% endif %} lang="{{ l }}" title="{{ LANG_NAMES[l] }}">{{ l|upper }}</a>{% else %}<span class="off" title="{{ LANG_NAMES[l] }}">{{ l|upper }}</span>{% endif %}{% endfor %}</p>
+    </header>
+    {% if body %}
+    <div class="prose">{{ body|safe }}</div>
+    {% if quiz %}
+    <section class="quiz" data-correct="{{ t('correct') }}" data-incorrect="{{ t('incorrect') }}">
+      <h2>{{ t('selfcheck') }}</h2>
+      {% for q in quiz.questions %}
+      <form class="q" data-answer="{{ q.answer }}">
+        <p class="q-text"><strong>{{ loop.index }}.</strong> {{ q.q }}</p>
+        {% for o in q.options %}<label><input type="radio" name="q{{ loop.index0 }}" value="{{ loop.index0 }}"> {{ o }}</label>{% endfor %}
+        <button type="submit" class="btn btn-small">{{ t('check') }}</button>
+        <p class="q-feedback" hidden data-explain="{{ q.explain }}"></p>
+      </form>
+      {% endfor %}
+    </section>
+    {% endif %}
+    {% else %}
+    <div class="notice">
+      <p>{{ t('not_available') }}</p>
+      <p class="langs big">{% for l in avail %}<a href="{{ root }}{{ l }}/modules/{{ card.n }}/{{ ch }}/" lang="{{ l }}">{{ LANG_NAMES[l] }}</a>{% endfor %}</p>
+    </div>
+    {% endif %}
+    <nav class="pager">
+      {% if prev %}<a class="prev" href="{{ root }}{{ lang }}/modules/{{ card.n }}/{{ prev.n }}/"><small>← {{ t('prev') }}</small><span>{{ prev.title }}</span></a>{% else %}<a class="prev" href="{{ root }}{{ lang }}/modules/{{ card.n }}/"><small>← {{ t('overview') }}</small><span>{{ card.title }}</span></a>{% endif %}
+      {% if next %}<a class="next" href="{{ root }}{{ lang }}/modules/{{ card.n }}/{{ next.n }}/"><small>{{ t('next') }} →</small><span>{{ next.title }}</span></a>{% else %}<a class="next" href="{{ root }}{{ lang }}/modules/"><small>{{ t('all_modules') }} →</small><span>{{ t('nav_modules') }}</span></a>{% endif %}
+    </nav>
+  </article>
+  {% if toc %}
+  <aside class="toc">
+    <p class="toc-title">{{ t('contents') }}</p>
+    <ol>{% for h in toc %}<li><a href="#{{ h.id }}">{{ h.t }}</a></li>{% endfor %}</ol>
+  </aside>
+  {% endif %}
+</div>
+{% endblock %}

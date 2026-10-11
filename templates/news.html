@@ -1,0 +1,19 @@
+{% extends "base.html" %}{% set section='news' %}
+{% block title %}{{ t('nav_news') }} — CLIAVE{% endblock %}
+{% block main %}
+<div class="wrap page-head"><h1>{{ t('nav_news') }}</h1><p class="lead">{{ t('news_note') }}</p></div>
+<div class="wrap news-list" lang="en">
+{% set ns = namespace(year='') %}
+{% for n in news %}
+  {% if n.date[:4] != ns.year %}{% set ns.year = n.date[:4] %}<h2 class="year">{{ ns.year }}</h2>{% endif %}
+  <article class="news" id="{{ n.slug }}">
+    <time datetime="{{ n.date }}">{{ n.date_h }}</time>
+    <h3>{{ n.title }}</h3>
+    {% for p in n.body %}<p>{{ p }}</p>{% endfor %}
+    {% if n.video %}<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/{{ n.video }}" title="{{ n.title }}" loading="lazy" allowfullscreen></iframe></div>{% endif %}
+    {% if n.photos %}<div class="gallery g{{ n.photos|length }}">{% for ph in n.photos %}<a href="{{ root }}{{ ph.src }}"><img src="{{ root }}{{ ph.src }}" alt="" loading="lazy" width="{{ ph.w }}" height="{{ ph.h }}"></a>{% endfor %}</div>{% endif %}
+    {% if n.links %}<ul class="links">{% for l in n.links %}<li><a href="{{ l[1] }}" rel="noopener">{{ l[0] }}</a></li>{% endfor %}</ul>{% endif %}
+  </article>
+{% endfor %}
+</div>
+{% endblock %}
