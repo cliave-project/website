@@ -1,5 +1,6 @@
 """Convert CLIAVE learning-module .docx files into HTML fragments + JSON metadata.
 Usage: python convert_modules.py <Learning Modules dir> <output repo dir>
+Source (Drive, My Drive/EU Projects): CLIAVE - Climate Focused Agricultural Vocational Education/Publications/Learning Modules
 Output: content/modules/m{N}/{lang}/{ch}.html, content/modules/index.json, static/img/lm/*.webp
 """
 import sys, os, re, json, glob, hashlib, subprocess, tempfile, shutil, unicodedata

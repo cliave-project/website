@@ -19,6 +19,20 @@ Live site: https://www.cliave.net
 | `tools/build.py` | Builds the site into `_site/` |
 | `tools/convert_modules.py` | Re-converts the original .docx modules (needs pandoc, LibreOffice) |
 
+## Source files (Google Drive)
+
+All sources live under `My Drive/EU Projects/CLIAVE - Climate Focused Agricultural Vocational Education/`:
+
+| Drive folder | Used for |
+|---|---|
+| `Publications/Learning Modules/` | Module .docx (`tools/convert_modules.py`), slide PDFs (`static/downloads/`) |
+| `Publications/Book/` | Book PDFs and covers |
+| `Outreach/Design/` | Logos, EU emblem, favicon, hero images (`static/img/brand/`, `static/img/partners/`) |
+| `Outreach/Dissemination/`, `Admin/Meetings/` | News photos (`static/img/news/`); folders recorded in `data/news_map.json` |
+| `Data/` | Survey, evaluation and user-application responses — personal data, **never published** |
+
+Do not rename files under `Publications/`.
+
 ## Build locally
 
 ```
