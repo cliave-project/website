@@ -3,7 +3,7 @@
 Open learning portal of the Erasmus+ project CLIAVE (2021-1-TR01-KA220-VET-000032974), 2022–2024.
 Six learning modules × eight chapters, in English, Turkish, Czech, Romanian, Serbian and Slovenian. No registration.
 
-Live site: https://www.cliave.net
+Live site: https://cliave.net
 
 ## Structure
 

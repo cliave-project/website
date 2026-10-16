@@ -1,5 +1,5 @@
 """Build the static CLIAVE portal into _site/.
-Usage: python tools/build.py [--base-url https://www.cliave.net]
+Usage: python tools/build.py [--base-url https://cliave.net]
 """
 import os, sys, json, shutil, re, math, glob, datetime, html
 from jinja2 import Environment, FileSystemLoader, select_autoescape
@@ -9,7 +9,7 @@ sys.path.insert(0, os.path.join(ROOT, 'data'))
 from sitedata import LANGS, LANG_NAMES, HTML_LANG, PARTNERS, MODULES, DISCLAIMER, T, ABOUT, PROJECT_FACTS  # noqa
 from news import NEWS  # noqa
 
-BASE_URL = 'https://www.cliave.net'
+BASE_URL = 'https://cliave.net'
 if '--base-url' in sys.argv: BASE_URL = sys.argv[sys.argv.index('--base-url') + 1].rstrip('/')
 OUT = os.path.join(ROOT, '_site')
 CONTENT = os.path.join(ROOT, 'content', 'modules')

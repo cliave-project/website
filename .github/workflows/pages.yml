@@ -19,7 +19,7 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install jinja2==3.1.6
-      - run: python tools/build.py --base-url https://www.cliave.net
+      - run: python tools/build.py --base-url https://cliave.net
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
